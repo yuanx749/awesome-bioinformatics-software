@@ -1,0 +1,23 @@
+.bd-page-width {
+  max-width: 100%;
+}
+
+.bd-main .bd-content .bd-article-container {
+  max-width: 100%;
+}
+
+.bd-article table {
+  display: block;
+  overflow-x: auto;
+}
+
+.bd-article th,
+.bd-article td {
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.bd-article td:nth-child(2) {
+  min-width: 16rem;
+  white-space: normal;
+}

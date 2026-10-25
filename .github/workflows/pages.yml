@@ -1,0 +1,29 @@
+name: Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: yuanx749/auto-sphinx-page-action@main
+        with:
+          sphinx-args: >-
+            -D html_static_path=_static
+            -D html_css_files=catalog.css
